@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Todo list</h1>
-  <a href="{% url 'todo:task-create' %}" class="btn btn-primary link-to-page">
-    Create
-  </a>
+  <h1>Todo list
+    <a href="{% url 'todo:task-create' %}" class="btn btn-primary link-to-page">
+      Create task!
+    </a></h1>
+
   <p>Welcome to your Todo list!</p>
 
-  <table>
+  <table class="table">
+
     {% for task in task_list %}
       <tr>
         <td><h3>{{ task.content }} {% if task.complete %}Done{% else %}Not Done{% endif %}</h3>
           <p>Created: {{ task.datetime }}</p>
-          <p>Tags: {% for tag in task.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+          <p>Tags: {% for tag in task.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            <a class="btn btn-outline-primary" href="{% url 'todo:task-update' pk=task.id %}">Update Task</a>
+            <a class="btn btn-outline-danger" href="{% url 'todo:task-delete' pk=task.id %}">Delete Task</a></p>
         </td>
       </tr>
     {% endfor %}
