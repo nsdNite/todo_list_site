@@ -10,7 +10,7 @@ class IndexView(View):
     template_name = "todo_app/index.html"
 
     def get(self, request, *args, **kwargs):
-        task_list = Task.objects.all()
+        task_list = Task.objects.all().order_by('complete', '-datetime')
         context = {'task_list': task_list}
         return render(request, self.template_name, context)
 
