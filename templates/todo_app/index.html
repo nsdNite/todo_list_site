@@ -2,10 +2,10 @@
 
 {% block content %}
   <h1>Todo list
-    <a href="{% url 'todo:task-create' %}" class="btn btn-primary link-to-page">
-      Create task!
-    </a>
   </h1>
+  <a class="btn btn-primary" href="{% url 'todo:task-create' %}">
+    Create task!
+  </a>
   <p>Welcome to your Todo list!</p>
 
   <table class="table">
