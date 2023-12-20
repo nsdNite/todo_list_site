@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic, View
 
@@ -13,6 +13,14 @@ class IndexView(View):
         task_list = Task.objects.all().order_by('complete', '-datetime')
         context = {'task_list': task_list}
         return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        task_id = request.POST.get('task_id')
+        if task_id:
+            task = Task.objects.get(pk=task_id)
+            task.complete = not task.complete
+            task.save()
+        return redirect('todo:index')
 
 
 class TagListView(View):

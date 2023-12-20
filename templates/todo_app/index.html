@@ -18,6 +18,16 @@
           <p>Tags: {% for tag in task.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
             <a class="btn btn-outline-primary" href="{% url 'todo:task-update' pk=task.id %}">Update Task</a>
             <a class="btn btn-outline-danger" href="{% url 'todo:task-delete' pk=task.id %}">Delete Task</a></p>
+
+          <form method="post" action="{% url 'todo:index' %}">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" value="{{ task.id }}">
+            {% if task.complete %}
+              <button class="btn btn-secondary" type="submit" name="action" value="undo">Undo</button>
+            {% else %}
+              <button class="btn btn-success" type="submit" name="action" value="complete">Complete</button>
+            {% endif %}
+          </form>
         </td>
       </tr>
     {% endfor %}
