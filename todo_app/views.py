@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.views import generic, View
 
-# Create your views here.
+
+class IndexView(View):
+    template_name = "todo_app/index.html"
