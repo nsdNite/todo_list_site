@@ -18,5 +18,6 @@ class TaskForm(forms.ModelForm):
         required=False
     )
     deadline = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date'})
+        widget=forms.DateInput(attrs={'type': 'date'}),
+        required=False
     )
