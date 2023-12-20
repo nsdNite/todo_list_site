@@ -3,13 +3,16 @@
 {% block content %}
   <h1>Todo list</h1>
   <p>Welcome to your Todo list!</p>
-  <ul>
+
+  <table>
     {% for task in task_list %}
-      <li><h2>{{ task.content }}</h2></li><br>
-      Created: {{ task.datetime }} <br>
-      Completed: {% if task.complete %}Yes{% else %}No{% endif %}<br>
-      Tags: {% for tag in task.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+      <tr>
+        <td><h3>{{ task.content }} {% if task.complete %}Done{% else %}Not Done{% endif %}</h3>
+          <p>Created: {{ task.datetime }}</p>
+          <p>Tags: {% for tag in task.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        </td>
+      </tr>
     {% endfor %}
-  </ul>
+  </table>
 
 {% endblock %}

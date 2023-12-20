@@ -14,7 +14,7 @@ class IndexView(View):
 
 
 class TagListView(View):
-    template_name = "todo+app/tag-list.html"
+    template_name = "todo_app/tag_list.html"
 
     def get(self, request, *args, **kwargs):
         tag_list = Tag.objects.all()
