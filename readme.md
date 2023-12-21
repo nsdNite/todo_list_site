@@ -1,0 +1,10 @@
+## Page views: <br>
+![home.png](readme_media%2Fhome.png)
+![tags.png](readme_media%2Ftags.png)
+![task-create.png](readme_media%2Ftask-create.png)
+![tag-create.png](readme_media%2Ftag-create.png)
+![delete-task.png](readme_media%2Fdelete-task.png)
+![delete-tag.png](readme_media%2Fdelete-tag.png)
+![update-task.png](readme_media%2Fupdate-task.png)
+![update-tag.png](readme_media%2Fupdate-tag.png)
+![complete_task+sort.png](readme_media%2Fcomplete_task%2Bsort.png)
